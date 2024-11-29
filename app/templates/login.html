@@ -2,42 +2,99 @@
 <html>
 <head>
     <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
         .form-container {
-            margin-bottom: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            width: 400px;
         }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
         input {
-            display: block;
-            margin: 10px 0;
-            padding: 5px;
             width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: all 0.3s;
         }
+
+        input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 5px rgba(102,126,234,0.3);
+        }
+
         button {
-            padding: 8px 15px;
-            background-color: #007bff;
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
             color: white;
             border: none;
-            border-radius: 3px;
+            border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
         }
+
+        button:hover {
+            background: #5a6fe4;
+        }
+
         .flash-message {
-            color: red;
-            margin-bottom: 10px;
+            color: #dc3545;
+            background: #ffe6e6;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        p {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h2>Login</h2>
+        <h2>Welcome Back</h2>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
@@ -50,7 +107,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
-        <p>Not registered? <a href="{{ url_for('register') }}">Register here</a></p>
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
     </div>
 </body>
 </html>
